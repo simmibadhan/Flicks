@@ -1,4 +1,4 @@
 class Cast < ActiveRecord::Base
-	belongs_to :movies
-	belongs_to :actors
+	belongs_to :movie
+	belongs_to :actor
 end

@@ -20,7 +20,7 @@
         <td><%= actor.view_count %></td>
         <td><%= link_to 'Show', actor %></td>
         <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
-        <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,5 @@
 
 <br>
 
+<%= link_to 'Home', welcome_index_path %> |
 <%= link_to 'New Actor', new_actor_path %>
