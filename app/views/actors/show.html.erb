@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @actor.name %>
+</p>
+
+<p>
+  <strong>Date of Birth:</strong>
+  <%= @actor.dob.mday%> <%=@actor.dob.strftime('%B')%>, <%= @actor.dob.year %>
+</p>
+
+<p>
+  <strong>Biography:</strong>
+  <%= @actor.biography %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @actor.rating %>
+</p>
+
+<p>
+  <strong>Popularity:</strong>
+  <%= @actor.view_count %>
+</p>
+
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Back', actors_path %>

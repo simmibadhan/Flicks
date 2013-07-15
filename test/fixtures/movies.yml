@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  director: MyString
+  release_date: 2013-07-15
+  synopsis: MyText
+  rating: 9.99
+  view_count: 1
+
+two:
+  title: MyString
+  director: MyString
+  release_date: 2013-07-15
+  synopsis: MyText
+  rating: 9.99
+  view_count: 1
