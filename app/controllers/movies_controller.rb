@@ -62,6 +62,10 @@ class MoviesController < ApplicationController
     end
   end
 
+  def top_movies
+    @movies = Movie.limit(5).order('view_count desc')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie

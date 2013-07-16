@@ -1,0 +1,22 @@
+<h2>Top Movies</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Popularity</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= link_to movie.title, movie %></td>
+        <td><%= movie.view_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -36,7 +36,10 @@ gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
 gem 'debugger'
 
-#gem 'protected_attributes'
+gem 'twitter-bootstrap-rails'
+
+gem 'therubyracer'
+gem 'less-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

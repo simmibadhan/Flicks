@@ -3,7 +3,11 @@ Flicks::Application.routes.draw do
   get "welcome/index"
   resources :actors
 
-  resources :movies
+  resources :movies do
+    collection do
+      get 'top_movies'
+    end
+  end
 
   root 'welcome#index'
 
