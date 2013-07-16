@@ -22,7 +22,12 @@
   <div class="field">
     <%= f.label :release_date %><br>
     <%= f.date_select(:release_date,:start_year => 1940,:end_year => Time.now.year + 5) %>
-  </div>
+  </div>  
+  <%= hidden_field_tag "movie[actor_ids][]", nil%>
+    <% Actor.all.each do |actor| %>
+    <%= check_box_tag "movie[actor_ids][]", actor.id, @movie.actor_ids.include?(actor.id) %>
+    <%= actor.name %><br/>
+  <% end %>
   <div class="field">
     <%= f.label :synopsis %><br>
     <%= f.text_area :synopsis %>

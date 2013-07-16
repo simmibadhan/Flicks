@@ -34,6 +34,8 @@ end
 
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 
+gem 'debugger'
+
 #gem 'protected_attributes'
 
 # Use ActiveModel has_secure_password

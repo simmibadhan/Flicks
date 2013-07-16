@@ -14,6 +14,11 @@
 </p>
 
 <p>
+  <strong>Casting:</strong>
+  <%=@movie.actors.map { |f| f.name }.join ', '%>
+</p>
+
+<p>
   <strong>Synopsis:</strong>
   <%= @movie.synopsis %>
 </p>

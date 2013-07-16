@@ -1,4 +1,3 @@
 class Actor < ActiveRecord::Base
-	has_many :casts
-	has_many :movies, :through => :casts
+	has_and_belongs_to_many :movies
 end
