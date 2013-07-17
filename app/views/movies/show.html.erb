@@ -35,5 +35,8 @@
   <%= @movie.view_count %>
 </p>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>
+<%= link_to 'Edit', edit_movie_path(@movie) %><br>
+
+<h4>Reviews (<%=@movie.reviews.count%>)</h4>
+<%= render "reviews/reviews" %>
+<%= render "reviews/form" %>

@@ -1,12 +1,15 @@
 Flicks::Application.routes.draw do
   devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}
   get "welcome/index"
-  resources :actors
+  resources :actors do
+    resources :reviews
+  end
 
   resources :movies do
     collection do
       get 'top_movies'
     end
+    resources :reviews
   end
 
   root 'welcome#index'

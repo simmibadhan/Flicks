@@ -1,0 +1,22 @@
+<%= form_for [@reviewable, @review] do |f| %>
+  <% if @review.errors.any? %>
+    <div class="error_messages">
+      <h2>Please correct the following errors.</h2>
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+   <%= f.hidden_field :author_name, :value => current_user.username%><br>
+  </div>
+  <div class="field">
+    <%= f.text_area :body, rows: 5 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

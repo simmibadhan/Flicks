@@ -27,3 +27,7 @@
 
 <%= link_to 'Edit', edit_actor_path(@actor) %> |
 <%= link_to 'Back', actors_path %>
+
+<h4>Reviews (<%=@actor.reviews.count%>)</h4>
+<%= render "reviews/reviews" %>
+<%= render "reviews/form" %>

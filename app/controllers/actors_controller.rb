@@ -11,6 +11,10 @@ class ActorsController < ApplicationController
   # GET /actors/1
   # GET /actors/1.json
   def show
+    @actor = Actor.find(params[:id])
+    @reviewable = @actor
+    @reviews = @reviewable.reviews
+    @review = Review.new
   end
 
   # GET /actors/new

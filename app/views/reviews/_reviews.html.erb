@@ -1,0 +1,9 @@
+<div id="reviews">
+	<% @reviews.each do |review| %>
+
+    <strong>Review by <%= review.author_name %></strong> 
+	  <div class="review">
+	   <%= simple_format review.body %>
+	  </div>
+	<%end%>
+</div>
