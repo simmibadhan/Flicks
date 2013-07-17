@@ -1,0 +1,10 @@
+<h3>Movie Photos</h3>
+
+<div id="movie_photos">
+	<% @movie.movie_photos.each do |movie_photo| %>
+
+    <%= movie_photo.caption %>
+    
+	  <%= image_tag movie_photo.photo.url(:small) %>
+	<%end%>
+</div>

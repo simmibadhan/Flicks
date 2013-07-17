@@ -1,0 +1,25 @@
+<%= form_for [@movie, @movie_photo] do |f| %>
+  <% if @movie_photo.errors.any? %>
+    <div class="error_messages">
+      <h2>Please correct the following errors.</h2>
+      <ul>
+      <% @movie_photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+   <%= f.hidden_field :movie_id, :value => @movie.id%><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo, "Photo" %>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

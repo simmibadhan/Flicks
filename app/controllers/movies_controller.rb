@@ -15,6 +15,8 @@ class MoviesController < ApplicationController
     @reviewable = @movie
     @reviews = @reviewable.reviews
     @review = Review.new
+    @movie_photo = MoviePhoto.new 
+    @movie_photos = @movie.movie_photos
   end
 
   # GET /movies/new
