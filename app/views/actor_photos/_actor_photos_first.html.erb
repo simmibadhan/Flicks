@@ -1,0 +1,5 @@
+<div id="actor_photos_first">
+	<%if @actor.actor_photos.first%>
+	  <%= image_tag @actor.actor_photos.first.photo.url(:small) %>
+  <%end%>
+</div>

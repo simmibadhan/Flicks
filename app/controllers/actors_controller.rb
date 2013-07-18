@@ -66,6 +66,10 @@ class ActorsController < ApplicationController
     end
   end
 
+  def actors_gallery
+    @actor_photos = ActorPhoto.all.shuffle
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_actor

@@ -1,0 +1,20 @@
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @actors.each do |actor| %>
+            <tr>
+              <td><%= link_to actor.name, actor %></td>
+              <td><%= actor.view_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>

@@ -1,33 +1,60 @@
-<p>
-  <strong>Name:</strong>
-  <%= @actor.name %>
-</p>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <p>
+        <%= render partial: "actor_photos/actor_photos_first" %>
+      </p>
+      
+      <p>
+        <strong>Name:</strong>
+        <%= @actor.name %>
+      </p>
 
-<p>
-  <strong>Date of Birth:</strong>
-  <%= @actor.dob.strftime("%d %B, %Y")%>
-</p>
+      <p>
+        <strong>Date of Birth:</strong>
+        <%= @actor.dob.strftime("%d %B, %Y")%>
+      </p>
 
-<p>
-  <strong>Biography:</strong>
-  <%= @actor.biography %>
-</p>
+      <p>
+        <strong>Biography:</strong>
+        <%= @actor.biography %>
+      </p>
+<!-- 
+      <p>
+        <strong>Rating:</strong>
+        <%= @actor.rating %>
+      </p>
+ -->
+      <p>
+        <strong>Popularity:</strong>
+        <%@actor.view_count += 1 %>
+        <%@actor.save%>
+        <%= @actor.view_count %>
+      </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @actor.rating %>
-</p>
+      <ul class="nav nav-list">
+        <li class="divider"></li>
+      </ul>
 
-<p>
-  <strong>Popularity:</strong>
-  <%@actor.view_count += 1 %>
-  <%@actor.save%>
-  <%= @actor.view_count %>
-</p>
+      <div>
+        <h4>Reviews (<%=@actor.reviews.count%>)</h4>
+        <%= render "reviews/reviews" %>
+        <%= render "reviews/form" %>
+      </div>
 
-<%= link_to 'Edit', edit_actor_path(@actor) %> |
-<%= link_to 'Back', actors_path %>
+    </div>
 
-<h4>Reviews (<%=@actor.reviews.count%>)</h4>
-<%= render "reviews/reviews" %>
-<%= render "reviews/form" %>
+    <div class="span3">
+      <ul class="nav nav-list">
+        <li><h5><%= link_to 'Edit Actor', edit_actor_path(@actor) %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to 'Delete Actor', @actor, method: :delete, data: { confirm: 'Are you sure?' } %> </h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to @actor.name+' Photos', actor_actor_photos_path(@actor) %></h5></li>
+        <li class="divider"></li>
+      </ul>
+      <%= render "side_nav" %> 
+    </div>
+
+  </div>   
+</div>

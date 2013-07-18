@@ -1,15 +1,19 @@
-<div class="container">
-  <div class="row">
-    <div class="span8">
-    	<h3>Editing Actor</h3>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <h3>Editing Actor</h3>
       <%= render 'form' %>
     </div>
 
-    <!-- <div class="span2">
-      <h3>Add Photos</h3>
-      <%#= render partial: "movie_photos/form" %>
-      <%#= render partial: "movie_photos/movie_photos" %>
-    </div> -->
-  </div>
+  <div class="span3">
+      <ul class="nav nav-list">
+        <li><h5><%= link_to 'Back to Actor', actor_path(@actor) %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to @actor.name+' Photos', actor_actor_photos_path(@actor) %></h5></li>
+        <li class="divider"></li>
+      </ul>
+      <%= render "side_nav" %> 
+    </div>
+
+  </div>   
 </div>
-<h5><%= link_to 'Back to Actor', @actor %></h5>

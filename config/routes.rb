@@ -1,9 +1,15 @@
 Flicks::Application.routes.draw do
+  get "actor_photos/new"
   get "movie_photos/new"
-  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}
   get "welcome/index"
+
+  devise_for :users, :path_names => {:sign_in => "login", :sign_out => "logout"}
+  
   resources :actors do
-    resources :reviews
+    collection do
+      get 'actors_gallery'
+    end
+    resources :reviews, :actor_photos
   end
 
   resources :movies do

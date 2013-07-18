@@ -1,9 +1,9 @@
-<%= form_for [@movie, @movie_photo] do |f| %>
-  <% if @movie_photo.errors.any? %>
+<%= form_for [@actor, @actor_photo] do |f| %>
+  <% if @actor_photo.errors.any? %>
     <div class="error_messages">
       <h2>Please correct the following errors.</h2>
       <ul>
-      <% @movie_photo.errors.full_messages.each do |msg| %>
+      <% @actor_photo.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="field">
-   <%= f.hidden_field :movie_id, :value => @movie.id%><br>
+   <%= f.hidden_field :actor_id, :value => @actor.id%><br>
   </div>
 
   <div class="field">

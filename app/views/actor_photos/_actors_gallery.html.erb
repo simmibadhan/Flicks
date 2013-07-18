@@ -1,0 +1,5 @@
+<div id="actors_gallery">
+	<% @actor_photos.each do |actor_photo| %>
+	  <%= image_tag actor_photo.photo.url(:small) %>
+	<%end%>
+</div>
