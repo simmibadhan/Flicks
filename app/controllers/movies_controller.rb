@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
+    @movies =  Movie.all.search(params[:search]).order("release_date DESC").paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /movies/1
@@ -24,9 +24,6 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
-    @movie = Movie.find(params[:id])
-    @movie_photo = MoviePhoto.new 
-    @movie_photos = @movie.movie_photos
   end
 
   # POST /movies
@@ -71,6 +68,18 @@ class MoviesController < ApplicationController
 
   def top_movies
     @movies = Movie.limit(5).order('view_count desc')
+  end
+
+  def current_releases
+    @movies = Movie.where("month(release_date) > month(current_date) - 1 and release_date < current_date").order('release_date desc')
+  end
+
+  def upcoming_movies
+    @movies = Movie.where("release_date > current_date").order('view_count desc')
+  end
+
+  def movies_gallery
+    @movie_photos = MoviePhoto.all.shuffle
   end
 
   private

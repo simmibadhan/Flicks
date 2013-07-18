@@ -5,7 +5,7 @@ class ActorsController < ApplicationController
   # GET /actors
   # GET /actors.json
   def index
-    @actors = Actor.all
+    @actors =  Actor.all.search(params[:search]).order("view_count DESC").paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /actors/1

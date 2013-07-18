@@ -1,13 +1,11 @@
 class MoviePhotosController < ApplicationController
   def index 
-
+    @movie = Movie.find(params[:movie_id])
+    @movie_photos = @movie.movie_photos
+    @movie_photo = MoviePhoto.new 
   end
-
-  def new
-  end
-  
+      
   def create
-    debugger
     mp = MoviePhoto.new
     mp.movie_id = params[:movie_id]
     mp.photo = params[:movie_photo][:photo]
@@ -15,7 +13,7 @@ class MoviePhotosController < ApplicationController
     @movie=Movie.find(params[:movie_id])
     # @movie_photo = @movie.movie_photos.new(params[:movie_photo][:photo])
     if mp.save
-      redirect_to edit_movie_path(@movie), notice: "Movie Photo created."
+      redirect_to movie_movie_photos_path(@movie), notice: "Movie Photo created."
     else
       render :new
     end

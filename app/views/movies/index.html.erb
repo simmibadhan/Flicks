@@ -1,27 +1,29 @@
-<h3>Movies</h3>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
 
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <!-- <th>Rating</th> -->
-      <th>Popularity</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <h3>Movies</h3>
+      <br>
 
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= link_to movie.title, movie %></td>
-        <!-- <td><%= movie.rating %></td> -->
-        <td><%= movie.view_count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= form_tag movies_path, :method => 'get', :id => "movies_search" do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :title => nil %>
+        </p>
+      <% end %>
 
+      <div id="movies">
+        <%=render 'movies'%>
+      </div>
 
-<h5><%= link_to 'New Movie', new_movie_path %></h5>
+      <div class="pagination">
+        <%= will_paginate @movies %>
+      </div>
+
+    </div>
+    <div class="span3">
+      <%= render 'side_nav'%>
+    </div>
+  </div>
+</div>
+

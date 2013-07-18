@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+      <h3>Movie Photos</h3>
+      <br>
+      <%if @movie_photos%>
+        <% @movie_photos.each do |movie_photo| %>
+           <%= image_tag movie_photo.photo.url(:small) %>
+        <%end%>
+      <%end%>
+    </div>
+
+    <div class="span3">
+      <h3>Add Photos</h3>
+      <%= render partial: "movie_photos/form" %>
+    </div>
+
+    <div class="span3">
+      <ul class="nav nav-list">
+        <li><h5><%= link_to 'Back to Movie', movie_path(@movie) %></h5></li>
+        <li class="divider"></li>
+      </ul>
+      <%= render 'movies/side_nav'%>
+    </div>
+
+  </div>
+</div>

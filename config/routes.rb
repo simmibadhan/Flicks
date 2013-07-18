@@ -8,7 +8,7 @@ Flicks::Application.routes.draw do
 
   resources :movies do
     collection do
-      get 'top_movies'
+      get 'top_movies','current_releases','upcoming_movies','movies_gallery'
     end
     resources :reviews, :movie_photos
   end

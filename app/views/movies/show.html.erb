@@ -1,6 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="span6">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
+      <p>
+        <%= render partial: "movie_photos/movie_photos_first" %>
+      </p>
       <p>
         <strong>Title:</strong>
         <%= @movie.title %>
@@ -26,10 +29,10 @@
         <%= @movie.synopsis %>
       </p>
 
-      <p>
+      <!-- <p>
         <strong>Rating:</strong>
         <%= @movie.rating %>
-      </p>
+      </p> -->
 
       <p>
         <strong>Popularity:</strong>
@@ -38,17 +41,33 @@
         <%= @movie.view_count %>
       </p>
 
-      <h5><%= link_to 'Edit Movie', edit_movie_path(@movie) %> |
-      <%= link_to 'Delete', @movie, method: :delete, data: { confirm: 'Are you sure?' } %> </h5>
-    </div>
+      <ul class="nav nav-list">
+        <li class="divider"></li>
+      </ul>
 
+      <div>
+        <h4>Reviews (<%=@movie.reviews.count%>)</h4>
+        <%= render "reviews/reviews" %>
+        <%= render "reviews/form" %>
+      </div>
+
+    </div>
 
     <div class="span3">
-      <h4>Reviews (<%=@movie.reviews.count%>)</h4>
-      <%= render "reviews/reviews" %>
-      <%= render "reviews/form" %>
+      <ul class="nav nav-list">
+        <li><h5><%= link_to 'Edit Movie', edit_movie_path(@movie) %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to 'Delete Movie', @movie, method: :delete, data: { confirm: 'Are you sure?' } %> </h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to @movie.title+' Photos', movie_movie_photos_path(@movie) %></h5></li>
+        <li class="divider"></li>
+      </ul>
+      <%= render "side_nav" %> 
     </div>
-  </div>
+
+  </div>   
 </div>
+
+    
 
 

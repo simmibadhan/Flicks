@@ -1,6 +1,15 @@
-<h1>Editing actor</h1>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+    	<h3>Editing Actor</h3>
+      <%= render 'form' %>
+    </div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @actor %> |
-<%= link_to 'Back', actors_path %>
+    <!-- <div class="span2">
+      <h3>Add Photos</h3>
+      <%#= render partial: "movie_photos/form" %>
+      <%#= render partial: "movie_photos/movie_photos" %>
+    </div> -->
+  </div>
+</div>
+<h5><%= link_to 'Back to Actor', @actor %></h5>

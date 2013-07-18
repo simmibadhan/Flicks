@@ -1,31 +1,55 @@
-<h2>Actors</h2>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span9">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Rating</th>
-      <th>Popularity</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+      <h3>Actors</h3>
+      <br>
 
-  <tbody>
-    <% @actors.each do |actor| %>
-      <tr>
-        <td><%= actor.name %></td>
-        <td><%= actor.rating %></td>
-        <td><%= actor.view_count %></td>
-        <td><%= link_to 'Show', actor %></td>
-        <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
-        <td><%= link_to 'Delete', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= form_tag actors_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :title => nil %>
+        </p>
+      <% end %>
 
-<br>
+      <table class="table table-condensed">
+        <thead>
+          <tr>
+          <th>Name</th>
+          <th>Popularity</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          </tr>
+        </thead>
 
-<%= link_to 'New Actor', new_actor_path %>
+        <tbody>
+          <% @actors.each do |actor| %>
+            <tr>
+              <td><%= link_to actor.name, actor %></td>
+              <td><%= actor.view_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <%= will_paginate @actors %>
+      </div>
+    </div>
+    <div class="span3">
+      <ul class="nav nav-list">
+        <li><h5><%= link_to 'New Actor', new_actor_path %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to "Top Movies", top_movies_movies_path %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to "Current Releases", top_movies_movies_path %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to "Upcoming Movies", top_movies_movies_path %></h5></li>
+        <li class="divider"></li>
+        <li><h5><%= link_to "Actors Gallery", top_movies_movies_path %></h5></li>
+        <li class="divider"></li>
+      </ul>
+    </div>
+  </div>
+</div>
