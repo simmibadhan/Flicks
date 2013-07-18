@@ -15,8 +15,6 @@ class MoviesController < ApplicationController
     @reviewable = @movie
     @reviews = @reviewable.reviews
     @review = Review.new
-    @movie_photo = MoviePhoto.new 
-    @movie_photos = @movie.movie_photos
   end
 
   # GET /movies/new
@@ -26,6 +24,9 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
+    @movie = Movie.find(params[:id])
+    @movie_photo = MoviePhoto.new 
+    @movie_photos = @movie.movie_photos
   end
 
   # POST /movies

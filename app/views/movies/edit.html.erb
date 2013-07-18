@@ -1,5 +1,16 @@
-<h3>Editing movie</h3>
+<div class="container">
+  <div class="row">
+    <div class="span8">
+    	<h3>Editing movie</h3>
+      <%= render 'form' %>
+    </div>
 
-<%= render 'form' %>
+    <div class="span2">
+      <h3>Add Photos</h3>
+      <%= render partial: "movie_photos/form" %>
+      <%= render partial: "movie_photos/movie_photos" %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Back to Movie', @movie %>
